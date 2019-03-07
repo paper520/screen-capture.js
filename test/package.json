@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "test": "node_modules/.bin/webpack",
+    "start": "npm install && npm run test"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-loader": "6.4.1",
+    "webpack": "2.7.0"
+  }
+}

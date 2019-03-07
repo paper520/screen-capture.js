@@ -1,0 +1,27 @@
+{
+  "name": "screen-capture.js",
+  "version": "0.0.0-next",
+  "description": "ES代码截取HTML页面中的一部分为图片。",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yelloxing/screen-capture.js.git"
+  },
+  "keywords": [
+    "screen-caputre",
+    "svg",
+    "html2canvas"
+  ],
+  "author": "心叶",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yelloxing/screen-capture.js/issues"
+  },
+  "homepage": "https://github.com/yelloxing/screen-capture.js#readme",
+  "dependencies": {
+    "xhtml.js": "^0.1.2"
+  }
+}
