@@ -10,8 +10,6 @@ export default function (dom) {
     "height": dom.offsetHeight
   };
 
-  var template = outhtml(dom);
-
   // 追加图片
   xhtml(document.getElementsByTagName('body')).append('<img '
     + 'id="img-' + unique + '" '
@@ -20,9 +18,12 @@ export default function (dom) {
     + 'src="data:image/svg+xml;charset=utf-8,<svg xmlns=\'http://www.w3.org/2000/svg\'><foreignObject '
     + 'width=\'' + size.width + '\' '
     + 'height=\'' + size.height + '\' '
-    + '><body xmlns=\'http://www.w3.org/1999/xhtml\'>' +
-    template +
-    '</body></foreignObject></svg>" />');
+    + '><body xmlns=\'http://www.w3.org/1999/xhtml\'>'
+
+    // 因为是字符串里面的字符串，外部用的双引号，里面的双引号需要转义
+    + outhtml(dom).replace(/"/g, "&quot;")
+
+    + '</body></foreignObject></svg>" />');
 
   xhtml(document.getElementById('img-' + unique)).css({
     "position": 'fixed',
