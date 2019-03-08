@@ -9,18 +9,11 @@
 </head>
 
 <body>
-  <canvas id='canvas'></canvas>
-  <img id='img' width="300" height="150" src='data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><foreignObject width="120" height="50"><body xmlns="http://www.w3.org/1999/xhtml"><p style="font-size:12px;margin:0;color:red;">一段需要word wrap的文字。</p></body></foreignObject></svg>'>
+
+  <p style='color:red' id='test'>这是测试文字</p>
+
   <script src="./build.es5.js"></script>
 
-  <script>
-  
-    var canvas=document.getElementById('canvas');
-    var painter=canvas.getContext('2d');
-
-    painter.drawImage(document.getElementById('img'), 0, 0);
-  
-  </script>
 </body>
 
 </html>

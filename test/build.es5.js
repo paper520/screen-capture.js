@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -349,6 +349,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_index__ = __webpack_require__(8);
 
 
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__src_index__["a" /* default */])(document.getElementById('test')).then(function (data) {
+  console.log(data);
+});
+
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
@@ -501,7 +505,7 @@ xhtml.copy = __WEBPACK_IMPORTED_MODULE_3_luna_library___default.a.clipboard_copy
 // 轮询动画
 xhtml.animation = __WEBPACK_IMPORTED_MODULE_3_luna_library___default.a.animation;
 
-/* unused harmony default export */ var _unused_webpack_default_export = (xhtml);
+/* harmony default export */ __webpack_exports__["a"] = (xhtml);
 
 /***/ }),
 /* 5 */
@@ -657,12 +661,65 @@ function remove() {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_xhtml_js__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__outhtml__ = __webpack_require__(9);
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (function (dom) {});;
+
+/* harmony default export */ __webpack_exports__["a"] = (function (dom) {
+
+  var unique = new Date().valueOf() + "-" + (Math.random(1) * 100).toFixed(0);
+
+  var size = {
+    "width": dom.offsetWidth,
+    "height": dom.offsetHeight
+  };
+
+  var template = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__outhtml__["a" /* default */])(dom);
+
+  // 追加图片
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_xhtml_js__["a" /* default */])(document.getElementsByTagName('body')).append('<img ' + 'id="img-' + unique + '" ' + 'width="' + size.width + '" ' + 'height="' + size.height + '" ' + 'src="data:image/svg+xml;charset=utf-8,<svg xmlns=\'http://www.w3.org/2000/svg\'><foreignObject ' + 'width=\'' + size.width + '\' ' + 'height=\'' + size.height + '\' ' + '><body xmlns=\'http://www.w3.org/1999/xhtml\'>' + template + '</body></foreignObject></svg>" />');
+
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_xhtml_js__["a" /* default */])(document.getElementById('img-' + unique)).css({
+    "position": 'fixed',
+    "top": "20000px",
+    "left": "20000px"
+  });
+
+  var promise = new Promise(function (resolve, refused) {
+
+    var timeout = window.setTimeout(function () {
+
+      // 准备画布
+      var canvas = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_xhtml_js__["a" /* default */])('canvas')[0];
+      var painter = canvas.getContext('2d');
+
+      // 绘制
+      painter.drawImage(document.getElementById('img-' + unique), 0, 0);
+
+      // 删除图片
+      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_xhtml_js__["a" /* default */])(document.getElementById('img-' + unique)).remove();
+
+      window.clearTimeout(timeout);
+
+      // 回调
+      resolve(canvas.toDataURL());
+    }, 100);
+  });
+
+  return promise;
+});;
 
 /***/ }),
 /* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = (function (dom) {
+  return "<div style='color:red'>这是测试文字</div>";
+});;
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(2);
