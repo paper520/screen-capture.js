@@ -675,10 +675,7 @@ function remove() {
   };
 
   // 追加图片
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_xhtml_js__["a" /* default */])(document.getElementsByTagName('body')).append('<img ' + 'id="img-' + unique + '" ' + 'width="' + size.width + '" ' + 'height="' + size.height + '" ' + 'src="data:image/svg+xml;charset=utf-8,<svg xmlns=\'http://www.w3.org/2000/svg\'><foreignObject ' + 'width=\'' + size.width + '\' ' + 'height=\'' + size.height + '\' ' + '><body xmlns=\'http://www.w3.org/1999/xhtml\'>'
-
-  // 因为是字符串里面的字符串，外部用的双引号，里面的双引号需要转义
-  + __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__outhtml__["a" /* default */])(dom).replace(/"/g, "&quot;") + '</body></foreignObject></svg>" />');
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_xhtml_js__["a" /* default */])(document.getElementsByTagName('body')).append('<img ' + 'id="img-' + unique + '" ' + 'width="' + size.width + '" ' + 'height="' + size.height + '" ' + 'src="data:image/svg+xml;charset=utf-8,<svg xmlns=\'http://www.w3.org/2000/svg\'><foreignObject ' + 'width=\'' + size.width + '\' ' + 'height=\'' + size.height + '\' ' + '><body xmlns=\'http://www.w3.org/1999/xhtml\'>' + __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__outhtml__["a" /* default */])(dom) + '</body></foreignObject></svg>" />');
 
   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_xhtml_js__["a" /* default */])(document.getElementById('img-' + unique)).css({
     "position": 'fixed',
@@ -717,7 +714,8 @@ function remove() {
 "use strict";
 // 返回outHTML
 /* harmony default export */ __webpack_exports__["a"] = (function (dom) {
-  return dom.outerHTML || function (n) {
+
+  var outhtml = dom.outerHTML || function (n) {
     var div = document.createElement('div'),
         h;
     div.appendChild(n);
@@ -725,6 +723,11 @@ function remove() {
     div = null;
     return h;
   }(dom);
+
+  // 因为是字符串里面的字符串，外部用的双引号，里面的双引号需要转义
+  outhtml = outhtml.replace(/"/g, "&quot;");
+
+  return outhtml;
 });;
 
 /***/ }),

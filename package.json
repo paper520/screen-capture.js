@@ -1,6 +1,6 @@
 {
   "name": "screen-capture.js",
-  "version": "0.0.0-next",
+  "version": "0.0.1-next",
   "description": "ES代码截取HTML页面中的一部分为图片。",
   "main": "./src/index.js",
   "scripts": {
