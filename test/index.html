@@ -6,11 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>测试页面</title>
+  <style>
+    div {
+      background-color: rgb(135, 208, 241);
+      padding: 10px;
+      width: 700px;
+    }
+
+    div>img {
+      width: 700px;
+    }
+  </style>
 </head>
 
 <body>
 
-  <p style='color:red' id='test'>这是测试文字</p>
+  <div id='test'>
+    这是测试界面
+    <ul>
+      <li>文字一</li>
+      <li>文字二</li>
+      <li>文字三</li>
+    </ul>
+    <img src="./list.png" />
+  </div>
 
   <script src="./build.es5.js"></script>
 

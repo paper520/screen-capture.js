@@ -1,3 +1,3 @@
 export default function(dom){
-  return "<div style='color:red'>这是测试文字</div>";
+  return "<em style='color:blue'>开发中...</em>";
 };
